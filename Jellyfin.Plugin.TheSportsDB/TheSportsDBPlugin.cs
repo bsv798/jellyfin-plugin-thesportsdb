@@ -12,14 +12,24 @@ namespace Jellyfin.Plugin.TheSportsDB;
 /// <summary>
 /// The main plugin.
 /// </summary>
-public class Plugin : BasePlugin<PluginConfiguration>, IHasWebPages
+public class TheSportsDBPlugin : BasePlugin<PluginConfiguration>, IHasWebPages
 {
     /// <summary>
-    /// Initializes a new instance of the <see cref="Plugin"/> class.
+    /// Gets the provider name.
+    /// </summary>
+    public const string ProviderName = "TheSportsDB";
+
+    /// <summary>
+    /// Gets the provider id.
+    /// </summary>
+    public const string ProviderId = "thesportsdb";
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="TheSportsDBPlugin"/> class.
     /// </summary>
     /// <param name="applicationPaths">Instance of the <see cref="IApplicationPaths"/> interface.</param>
     /// <param name="xmlSerializer">Instance of the <see cref="IXmlSerializer"/> interface.</param>
-    public Plugin(IApplicationPaths applicationPaths, IXmlSerializer xmlSerializer)
+    public TheSportsDBPlugin(IApplicationPaths applicationPaths, IXmlSerializer xmlSerializer)
         : base(applicationPaths, xmlSerializer)
     {
         Instance = this;
@@ -34,7 +44,7 @@ public class Plugin : BasePlugin<PluginConfiguration>, IHasWebPages
     /// <summary>
     /// Gets the current plugin instance.
     /// </summary>
-    public static Plugin? Instance { get; private set; }
+    public static TheSportsDBPlugin? Instance { get; private set; }
 
     /// <inheritdoc />
     public IEnumerable<PluginPageInfo> GetPages()
