@@ -15,7 +15,7 @@ namespace Jellyfin.Plugin.TheSportsDB
         /// <inheritdoc />
         public void RegisterServices(IServiceCollection serviceCollection, IServerApplicationHost applicationHost)
         {
-            serviceCollection.AddSingleton<TheSportsDBClientV1>();
+            serviceCollection.AddSingleton(new TheSportsDBClientV1());
             serviceCollection.AddSingleton<ProviderIdResolver<SeriesInfo>>();
         }
     }

@@ -82,6 +82,8 @@ public class SeasonImageProvider : IRemoteImageProvider
     /// <inheritdoc />
     public Task<HttpResponseMessage> GetImageResponse(string url, CancellationToken cancellationToken)
     {
-        return _httpClientFactory.CreateClient(NamedClient.Default).GetAsync(new Uri(url), cancellationToken);
+        using var message = new HttpRequestMessage(HttpMethod.Get, url);
+
+        return _tsdbClient.HttpClient.SendAsync(message, cancellationToken);
     }
 }
