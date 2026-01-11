@@ -9,6 +9,7 @@
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
     <CodeAnalysisRuleSet>../jellyfin.ruleset</CodeAnalysisRuleSet>
     <IncludeSymbols>True</IncludeSymbols>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -38,7 +39,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="MKDIR &quot;%25LocalAppData%25\jellyfin\plugins\thesportsdb\&quot;&#xD;&#xA;XCOPY &quot;$(TargetDir)*.*&quot; &quot;%25LocalAppData%25\jellyfin\plugins\thesportsdb\&quot; /E /Y" />
+    <Exec Command="MKDIR &quot;%25LocalAppData%25\jellyfin\plugins\thesportsdb\&quot;&#xD;&#xA;XCOPY &quot;$(TargetDir)\Jellyfin.Plugin.TheSportsDB.dll&quot; &quot;%25LocalAppData%25\jellyfin\plugins\thesportsdb\&quot; /E /Y&#xD;&#xA;XCOPY &quot;$(TargetDir)\HtmlAgilityPack.dll&quot; &quot;%25LocalAppData%25\jellyfin\plugins\thesportsdb\&quot; /E /Y&#xD;&#xA;XCOPY &quot;$(TargetDir)\TheSportsDBClient.dll&quot; &quot;%25LocalAppData%25\jellyfin\plugins\thesportsdb\&quot; /E /Y" />
   </Target>
 
 </Project>
