@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -6,7 +5,6 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Jellyfin.Plugin.TheSportsDB.Providers.IdsExtensions;
-using MediaBrowser.Common.Net;
 using MediaBrowser.Controller.Entities.TV;
 using MediaBrowser.Controller.Library;
 using MediaBrowser.Controller.Providers;
@@ -21,7 +19,6 @@ namespace Jellyfin.Plugin.TheSportsDB.Providers
     /// </summary>
     public class SeasonProvider : IRemoteMetadataProvider<Season, SeasonInfo>
     {
-        private readonly IHttpClientFactory _httpClientFactory;
         private readonly ILogger<SeasonProvider> _logger;
         private readonly ILibraryManager _libraryManager;
         private readonly TheSportsDBClientV1 _tsdbClient;
@@ -29,13 +26,11 @@ namespace Jellyfin.Plugin.TheSportsDB.Providers
         /// <summary>
         /// Initializes a new instance of the <see cref="SeasonProvider"/> class.
         /// </summary>
-        /// <param name="httpClientFactory">Instance of the <see cref="IHttpClientFactory"/> interface.</param>
         /// <param name="logger">Instance of the <see cref="ILogger{SeasonProvider}"/> interface.</param>
         /// <param name="libraryManager">Instance of <see cref="ILibraryManager"/>.</param>
         /// <param name="tsdbClient">Instance of <see cref="TheSportsDBClientV1"/>.</param>
-        public SeasonProvider(IHttpClientFactory httpClientFactory, ILogger<SeasonProvider> logger, ILibraryManager libraryManager, TheSportsDBClientV1 tsdbClient)
+        public SeasonProvider(ILogger<SeasonProvider> logger, ILibraryManager libraryManager, TheSportsDBClientV1 tsdbClient)
         {
-            _httpClientFactory = httpClientFactory;
             _logger = logger;
             _tsdbClient = tsdbClient;
             _libraryManager = libraryManager;

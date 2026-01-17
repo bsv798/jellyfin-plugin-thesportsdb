@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 using Jellyfin.Extensions;
 using Jellyfin.Plugin.TheSportsDB.Providers.IdResolvers;
 using Jellyfin.Plugin.TheSportsDB.Providers.IdsExtensions;
-using MediaBrowser.Common.Net;
 using MediaBrowser.Controller.Entities.TV;
 using MediaBrowser.Controller.Providers;
 using MediaBrowser.Model.Entities;
@@ -26,7 +25,6 @@ namespace Jellyfin.Plugin.TheSportsDB.Providers
     /// </summary>
     public class SeriesProvider : IRemoteMetadataProvider<Series, SeriesInfo>
     {
-        private readonly IHttpClientFactory _httpClientFactory;
         private readonly ILogger<SeriesProvider> _logger;
         private readonly TheSportsDBClientV1 _tsdbClient;
         private readonly ProviderIdResolver<SeriesInfo> _providerIdResolver;
@@ -34,13 +32,11 @@ namespace Jellyfin.Plugin.TheSportsDB.Providers
         /// <summary>
         /// Initializes a new instance of the <see cref="SeriesProvider"/> class.
         /// </summary>
-        /// <param name="httpClientFactory">Instance of the <see cref="IHttpClientFactory"/> interface.</param>
         /// <param name="logger">Instance of the <see cref="ILogger{SeriesProvider}"/> interface.</param>
         /// <param name="providerIdResolver">Instance of the <see cref="ProviderIdResolver{T}"/> interface.</param>
         /// <param name="tsdbClient">Instance of <see cref="TheSportsDBClientV1"/>.</param>
-        public SeriesProvider(IHttpClientFactory httpClientFactory, ILogger<SeriesProvider> logger, TheSportsDBClientV1 tsdbClient, ProviderIdResolver<SeriesInfo> providerIdResolver)
+        public SeriesProvider(ILogger<SeriesProvider> logger, TheSportsDBClientV1 tsdbClient, ProviderIdResolver<SeriesInfo> providerIdResolver)
         {
-            _httpClientFactory = httpClientFactory;
             _logger = logger;
             _tsdbClient = tsdbClient;
             _providerIdResolver = providerIdResolver;

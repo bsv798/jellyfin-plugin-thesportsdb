@@ -1,11 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Jellyfin.Plugin.TheSportsDB.Providers.IdsExtensions;
-using MediaBrowser.Common.Net;
 using MediaBrowser.Controller.Entities;
 using MediaBrowser.Controller.Entities.TV;
 using MediaBrowser.Controller.Providers;
@@ -22,19 +20,16 @@ namespace Jellyfin.Plugin.TheSportsDB.Providers;
 /// </summary>
 public class SeriesImageProvider : IRemoteImageProvider
 {
-    private readonly IHttpClientFactory _httpClientFactory;
     private readonly ILogger<SeriesImageProvider> _logger;
     private readonly TheSportsDBClientV1 _tsdbClient;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="SeriesImageProvider"/> class.
     /// </summary>
-    /// <param name="httpClientFactory">Instance of the <see cref="IHttpClientFactory"/> interface.</param>
     /// <param name="logger">Instance of the <see cref="ILogger{SeriesImageProvider}"/> interface.</param>
     /// <param name="tsdbClient">Instance of <see cref="TheSportsDBClientV1"/>.</param>
-    public SeriesImageProvider(IHttpClientFactory httpClientFactory, ILogger<SeriesImageProvider> logger, TheSportsDBClientV1 tsdbClient)
+    public SeriesImageProvider(ILogger<SeriesImageProvider> logger, TheSportsDBClientV1 tsdbClient)
     {
-        _httpClientFactory = httpClientFactory;
         _logger = logger;
         _tsdbClient = tsdbClient;
     }

@@ -17,6 +17,7 @@ namespace Jellyfin.Plugin.TheSportsDB
         {
             serviceCollection.AddSingleton(new TheSportsDBClientV1());
             serviceCollection.AddSingleton<ProviderIdResolver<SeriesInfo>>();
+            serviceCollection.AddSingleton<ProviderIdResolver<EpisodeInfo>>();
         }
     }
 }
