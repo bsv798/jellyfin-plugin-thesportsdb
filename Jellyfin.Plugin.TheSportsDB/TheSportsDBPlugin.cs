@@ -44,7 +44,7 @@ public class TheSportsDBPlugin : BasePlugin<PluginConfiguration>, IHasWebPages
     /// <summary>
     /// Gets the current plugin instance.
     /// </summary>
-    public static TheSportsDBPlugin? Instance { get; private set; }
+    public static TheSportsDBPlugin Instance { get; private set; } = null!;
 
     /// <inheritdoc />
     public IEnumerable<PluginPageInfo> GetPages()

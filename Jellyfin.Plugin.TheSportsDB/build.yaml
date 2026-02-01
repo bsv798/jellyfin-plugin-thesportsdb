@@ -1,0 +1,15 @@
+---
+name: "TheSportsDB"
+guid: "df975f2f-25c9-4f1f-9d86-c01272bbd356"
+version: "1.0.0.0"
+targetAbi: "10.11.0.0"
+framework: "net9.0"
+overview: "Get TV metadata from TheSportsDB"
+category: "MoviesAndShows"
+owner: "bsv798"
+artifacts:
+- "Jellyfin.Plugin.TheSportsDB.dll"
+- "HtmlAgilityPack.dll"
+- "TheSportsDBClient.dll"
+changelog: >
+  changelog

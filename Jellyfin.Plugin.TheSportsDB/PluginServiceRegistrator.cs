@@ -1,3 +1,4 @@
+using Jellyfin.Plugin.TheSportsDB.Configuration;
 using Jellyfin.Plugin.TheSportsDB.Providers.IdResolvers;
 using MediaBrowser.Controller;
 using MediaBrowser.Controller.Plugins;
@@ -15,7 +16,7 @@ namespace Jellyfin.Plugin.TheSportsDB
         /// <inheritdoc />
         public void RegisterServices(IServiceCollection serviceCollection, IServerApplicationHost applicationHost)
         {
-            serviceCollection.AddSingleton(new TheSportsDBClientV1());
+            serviceCollection.AddSingleton((sp) => new TheSportsDBClientV1(TheSportsDBPlugin.Instance.Configuration.ApiKey));
             serviceCollection.AddSingleton<ProviderIdResolver<SeriesInfo>>();
             serviceCollection.AddSingleton<ProviderIdResolver<EpisodeInfo>>();
         }
