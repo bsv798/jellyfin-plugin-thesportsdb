@@ -67,6 +67,8 @@ public class SeasonImageProvider : IRemoteImageProvider
             new() { Url = seasonFirst.StrBadge, Type = ImageType.Primary },
         };
 
+        remoteImages.RemoveAll(x => string.IsNullOrEmpty(x.Url));
+
         return remoteImages;
     }
 

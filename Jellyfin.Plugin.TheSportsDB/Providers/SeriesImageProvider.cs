@@ -72,6 +72,8 @@ public class SeriesImageProvider : IRemoteImageProvider
             new() { Url = seriesFirst.StrFanart4, Type = ImageType.Art }
         };
 
+        remoteImages.RemoveAll(x => string.IsNullOrEmpty(x.Url));
+
         return remoteImages;
     }
 

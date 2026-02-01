@@ -71,6 +71,8 @@ namespace Jellyfin.Plugin.TheSportsDB.Providers
                 new() { Url = seriesFirst.StrFanart, Type = ImageType.Art }
             };
 
+            remoteImages.RemoveAll(x => string.IsNullOrEmpty(x.Url));
+
             return remoteImages;
         }
 
